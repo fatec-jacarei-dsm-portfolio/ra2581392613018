@@ -1,0 +1,9 @@
+node_modules/
+.vite/
+dist/
+/PRODUCT.md
+/implementation_plan.md
+/system_architecture.md
+/task.md
+/tests/
+/docs/superpowers/
