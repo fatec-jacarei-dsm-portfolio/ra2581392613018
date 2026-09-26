@@ -28,27 +28,15 @@ window.PORTFOLIO_DATA = {
       name: "Site institucional Betinhos",
       category: "profissionais",
       type: "Profissional",
-      semester: "Junho de 2023 - atual",
+      semester: "1DSM e 2DSM - 2026",
       description:
         "Site institucional da Betinhos Executive Service, empresa de transporte executivo corporativo que atende São José dos Campos, Vale do Paraíba e outros eixos do Sudeste.",
       contribution:
         "Atuo como desenvolvedor focado na melhoria contínua do site, implementando ajustes e evoluções para manter a experiência digital clara, atual e funcional.",
-      technologies: ["Tecnologias a confirmar"],
+      technologies: ["React", "Vinext", "Vite", "JavaScript", "CSS"],
       repository: "Repositório privado",
       link: "https://www.betinhos.com.br",
       linkLabel: "Acessar site",
-    },
-    {
-      name: "Projeto pessoal",
-      category: "pessoais",
-      type: "Pessoal",
-      semester: "[Ano]",
-      description:
-        "Apresente uma ideia criada por você para estudar uma tecnologia, automatizar uma tarefa ou resolver uma necessidade pessoal.",
-      contribution:
-        "Conte por que o projeto existe, quais escolhas você fez e o que aprendeu durante a construção.",
-      technologies: ["Adicione", "as tecnologias"],
-      repository: "",
     },
   ],
   education: [
