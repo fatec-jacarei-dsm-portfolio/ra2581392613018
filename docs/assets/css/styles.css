@@ -1146,13 +1146,6 @@ ul {
   margin-bottom: 18px;
 }
 
-.build-tag {
-  margin-left: 12px;
-  color: color-mix(in srgb, var(--muted) 55%, var(--canvas));
-  font-size: 10px;
-  user-select: none;
-}
-
 @media (max-width: 560px) {
   .hero-stats {
     grid-template-columns: repeat(3, 1fr);
