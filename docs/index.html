@@ -1,11 +1,217 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Portfólio acadêmico de Renan Rodrigues Mendonca dos Santos, desenvolvedor de web apps e estudante de Desenvolvimento de Software Multiplataforma na Fatec Jacareí."
+    />
+    <meta name="theme-color" content="#f4f4f0" />
+    <title>Renan | Portfólio DSM · Fatec Jacareí</title>
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="assets/js/content.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Portfólio - RENAN RODRIGUES MENDONCA DOS SANTOS</title>
-</head>
-<body>
-    <h1>Bem vindo ao Portfólio de RENAN RODRIGUES MENDONCA DOS SANTOS</h1>
-</body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#inicio" aria-label="Renan, início">
+        <span class="brand-mark" aria-hidden="true">R</span>
+        <span>Renan</span>
+      </a>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span class="menu-button-label">Menu</span>
+        <img class="icon menu-icon" src="assets/icons/menu.svg" alt="" width="20" height="20" />
+      </button>
+
+      <nav id="site-menu" class="site-nav" aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#trajetoria">Trajetória</a>
+        <a href="#videos">Vídeos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+
+    <main id="conteudo">
+      <!-- Apresentação -->
+      <section id="inicio" class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Portfólio acadêmico · Fatec Jacareí · DSM</p>
+          <h1 id="hero-title">Olá, eu sou <strong data-profile="name">Renan.</strong></h1>
+          <p class="hero-intro" data-profile="intro">
+            Desenvolvo web apps claros, responsivos e construídos para resolver problemas reais.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#projetos">Ver projetos <img class="icon" src="assets/icons/arrow-down-right.svg" alt="" width="16" height="16" /></a>
+            <a class="secondary-link" href="#contato">Contato</a>
+          </div>
+          <dl class="hero-stats" aria-label="Resumo">
+            <div><dt>Projetos</dt><dd data-stat="projects">09</dd></div>
+            <div><dt>Semestre atual</dt><dd data-stat="semester">2DSM</dd></div>
+            <div><dt>Na Betinhos desde</dt><dd data-stat="since">2023</dd></div>
+          </dl>
+        </div>
+
+        <figure class="hero-photo reveal" data-delay="1">
+          <img
+            src="assets/img/perfil.png"
+            alt="Retrato de Renan com camisa preta e braços cruzados"
+            width="1041"
+            height="1435"
+            fetchpriority="high"
+          />
+        </figure>
+      </section>
+
+      <section id="sobre" class="about section-shell" aria-labelledby="about-title">
+        <div class="section-heading reveal">
+          <p class="section-index">01</p>
+          <h2 id="about-title">Sobre mim</h2>
+          <p>Uma trajetória em construção, registrada por decisões e entregas reais.</p>
+        </div>
+
+        <div class="about-grid">
+          <p class="about-statement reveal">
+            Aprendo construindo produtos digitais que precisam funcionar bem para pessoas reais.
+          </p>
+
+          <div class="about-details reveal" data-delay="1">
+            <article class="about-detail">
+              <h3>Formação e experiência</h3>
+              <p data-profile="about">Sou estudante de Desenvolvimento de Software Multiplataforma na Fatec Jacareí. Desde junho de 2023 trabalho na Betinhos Executive Service como desenvolvedor voltado à melhoria contínua.</p>
+            </article>
+
+            <article class="about-detail">
+              <h3>Objetivos profissionais</h3>
+              <p data-profile="objective">Busco oportunidades para desenvolver aplicações web completas, com atenção a interfaces responsivas, experiência do usuário e qualidade de código.</p>
+            </article>
+
+            <article class="about-detail">
+              <h3>Áreas de interesse</h3>
+              <ul class="tag-list" data-list="profile-interests"><li>Desenvolvimento web</li><li>Apps mobile e desktop</li><li>Integração de dados</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projetos -->
+      <section id="projetos" class="projects section-shell" aria-labelledby="projects-title">
+        <div class="projects-heading reveal">
+          <div class="section-heading">
+            <p class="section-index">02</p>
+            <h2 id="projects-title">Projetos</h2>
+            <p>Acadêmicos, profissionais e pessoais. Em cada um, a contribuição pessoal vem em destaque.</p>
+          </div>
+          <div class="project-filters" role="group" aria-label="Filtrar projetos">
+            <button type="button" data-filter="todos" aria-pressed="true">Todos</button>
+            <button type="button" data-filter="academicos" aria-pressed="false">Acadêmicos</button>
+            <button type="button" data-filter="profissionais" aria-pressed="false">Profissionais</button>
+            <button type="button" data-filter="pessoais" aria-pressed="false">Pessoais</button>
+          </div>
+        </div>
+
+        <div id="projects-grid" class="projects-grid" aria-live="polite">
+          <section class="project-group">
+            <header class="project-group-heading"><h3>Acadêmicos</h3></header>
+            <div class="project-cards">
+              <article class="project-card project-card-featured">
+                <div class="project-content">
+                  <p class="project-meta"><span>Projeto Integrador (ABP)</span><span class="project-semester">1DSM – 1º Sem. 2026</span></p>
+                  <h3>Scrum Dungeon</h3>
+                  <p class="project-description">RPG educativo criado pela equipe Octopus Code para ensinar Scrum por meio de cinco níveis progressivos, desafios interativos, avaliação de desempenho e certificado digital.</p>
+                  <div class="project-contribution"><h4>Contribuição pessoal</h4><p>Front-end das telas de login, cadastro e página inicial; capítulo 4 e seu minigame; responsividade; testes de interface e geração do certificado em PDF.</p></div>
+                  <dl>
+                    <div><dt>Tecnologias</dt><dd>HTML, CSS, JavaScript, EJS, Node.js, Express, PostgreSQL</dd></div>
+                    <div><dt>Repositório</dt><dd>github.com/octopusCode26/scrum-dungeon</dd></div>
+                  </dl>
+                  <a class="project-card-link" href="https://github.com/octopusCode26/scrum-dungeon" target="_blank" rel="noreferrer">Abrir repositório <img class="icon" src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16" /></a>
+                </div>
+              </article>
+            </div>
+          </section>
+          <noscript>
+            <p class="noscript-note">Ative o JavaScript para ver todos os projetos e usar os filtros.</p>
+          </noscript>
+        </div>
+      </section>
+
+      <!-- Informações complementares -->
+      <section id="trajetoria" class="trajectory section-shell" aria-labelledby="trajectory-title">
+        <div class="trajectory-title reveal">
+          <p class="section-index">03</p>
+          <h2 id="trajectory-title">Formação e repertório</h2>
+        </div>
+
+        <div class="trajectory-grid">
+          <article class="education-block reveal">
+            <h3>Formação acadêmica</h3>
+            <p class="education-course" data-education="course">Desenvolvimento de Software Multiplataforma</p>
+            <p data-education="institution">Fatec Jacareí</p>
+            <p data-education="period">Ingresso em 2026 · cursando o 2DSM</p>
+          </article>
+
+          <article class="experience-block reveal" data-delay="1">
+            <h3>Experiência profissional</h3>
+            <ul data-list="experience">
+              <li class="experience-item"><span class="experience-period">Junho de 2023 – atual</span><div><strong>Desenvolvedor</strong><span>Betinhos Executive Service</span><p>Desenvolvimento web e melhoria contínua.</p></div></li>
+            </ul>
+          </article>
+
+          <article class="courses-block reveal" data-block="courses" hidden>
+            <h3>Cursos e certificações</h3>
+            <ul data-list="courses"></ul>
+          </article>
+
+          <div class="knowledge-block reveal" data-delay="1">
+            <section>
+              <h3>Conhecimentos técnicos</h3>
+              <ul data-list="skills"><li>JavaScript</li><li>TypeScript</li><li>HTML</li><li>CSS</li><li>React</li><li>Node.js</li></ul>
+            </section>
+            <section>
+              <h3>Idiomas</h3>
+              <ul data-list="languages"><li>Português – nativo</li><li>Inglês – fluente</li></ul>
+            </section>
+            <section>
+              <h3>Interesses</h3>
+              <ul data-list="interests"><li>Desenvolvimento de web apps</li><li>Interfaces acessíveis</li><li>Produto digital</li></ul>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- Vídeos -->
+      <section id="videos" class="videos section-shell" aria-labelledby="videos-title">
+        <div class="section-heading reveal">
+          <p class="section-index">04</p>
+          <h2 id="videos-title">Vídeos de apresentação</h2>
+          <p>Pitches de cerca de um minuto, produzidos nas avaliações dos semestres pares, apresentando as contribuições nas duas ABPs mais recentes.</p>
+        </div>
+        <div id="video-list" class="video-list">
+          <article class="video-item reveal"><span>2DSM</span><p>Projetos de 1DSM e 2DSM</p><strong class="video-pending">Em breve</strong></article>
+          <article class="video-item reveal" data-delay="1"><span>4DSM</span><p>Projetos de 3DSM e 4DSM</p><strong class="video-pending">Em breve</strong></article>
+          <article class="video-item reveal" data-delay="2"><span>6DSM</span><p>Projetos de 5DSM e 6DSM</p><strong class="video-pending">Em breve</strong></article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Contato: apenas redes profissionais -->
+    <footer id="contato" class="site-footer">
+      <div>
+        <p class="section-index">05</p>
+        <p>Quer conhecer melhor meu trabalho?</p>
+        <h2>Vamos conversar.</h2>
+        <p class="footer-policy">Contato apenas por redes profissionais.</p>
+      </div>
+      <nav aria-label="Redes profissionais">
+        <a data-social="github" href="https://github.com/renanrmsantos14" target="_blank" rel="noreferrer">GitHub <img class="icon" src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16" /></a>
+        <a data-social="linkedin" href="https://www.linkedin.com/in/renan-santos-40662738b" target="_blank" rel="noreferrer">LinkedIn <img class="icon" src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16" /></a>
+      </nav>
+      <p class="footer-note">Renan Rodrigues Mendonca dos Santos · RA 2581392613018 · Portfólio DSM <span data-year></span></p>
+    </footer>
+  </body>
 </html>
