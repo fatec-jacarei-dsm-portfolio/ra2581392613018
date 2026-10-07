@@ -6,3 +6,5 @@ dist/
 /system_architecture.md
 /task.md
 /tests/
+package.json
+pnpm-lock.yaml
