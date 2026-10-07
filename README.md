@@ -2,22 +2,26 @@
 
 **Aluno:** Renan Rodrigues Mendonca dos Santos  
 **Curso:** Desenvolvimento de Software Multiplataforma  
-**Turma:** 2DSM - ingresso em 2026
+**Turma:** 1º semestre de 2026 (ingresso) - cursando o 2DSM
 
 ---
 
 **Portfólio Online**
 
-[Acesse o Portfólio](https://fatec-jacarei-dsm-portfolio.github.io/ra2581392613018/)
+🔗 [Acesse o Portfólio](https://fatec-jacarei-dsm-portfolio.github.io/ra2581392613018/)
 
 ---
 
 **Vídeos de Apresentação**
 
-- 2DSM - [Vídeo](LINK_VIDEO_2DSM)
-- 4DSM - [Vídeo](LINK_VIDEO_4DSM)
-- 6DSM - [Vídeo](LINK_VIDEO_6DSM)
+🎤 2DSM - [Vídeo](LINK_VIDEO_2DSM)  
+🎤 4DSM - [Vídeo](LINK_VIDEO_4DSM)  
+🎤 6DSM - [Vídeo](LINK_VIDEO_6DSM)
 
-## Antes de publicar
+---
 
-Substitua os textos entre colchetes e os links dos vídeos. O conteúdo do site pode ser editado em `docs/assets/js/content.js`.
+## Sobre este repositório
+
+- Todo o conteúdo publicado fica em `docs/` (HTML, CSS e JavaScript puros, sem dependências externas em execução).
+- Textos, projetos, formação e links são editados em `docs/assets/js/content.js`.
+- Os links dos vídeos devem ser atualizados aqui no README e em `content.js` (campo `videos`).
