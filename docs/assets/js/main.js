@@ -39,10 +39,10 @@
       .filter(([, text]) => text)
       .map(([title, text]) => `<div><h5>${title}</h5><p>${escapeHtml(text)}</p></div>`)
       .join("");
-    const modules = project.modules
-      ? `<ul class="project-modules" aria-label="Módulos">${project.modules
-          .map(([name, text]) => `<li><strong>${escapeHtml(name)}</strong><span>${escapeHtml(text)}</span></li>`)
-          .join("")}</ul>`
+    const solved = project.solved
+      ? `<div class="project-solved"><h5>Problemas resolvidos</h5><ul>${project.solved
+          .map(([title, problem, solution]) => `<li><strong>${escapeHtml(title)}</strong><p>${escapeHtml(problem)}</p><p>${escapeHtml(solution)}</p></li>`)
+          .join("")}</ul></div>`
       : "";
 
     return `
@@ -57,7 +57,7 @@
           ${isCase ? action : ""}
         </div>
         <div class="project-steps">${steps}</div>
-        ${modules}
+        ${solved}
         ${isCase ? "" : action}
       </article>`;
   }

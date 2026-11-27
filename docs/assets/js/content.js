@@ -77,20 +77,44 @@ window.PORTFOLIO_DATA = {
       semester: "1DSM e 2DSM – 2026",
       period: "Junho de 2026 – atual · 9 apps e 8 pacotes",
       description:
-        "Sistema interno da Betinhos Executive Service, do pedido do cliente ao financeiro, usado por clientes, operação, gestão e motoristas.",
+        "Sistema interno da Betinhos Executive Service, usado por clientes, operação, financeiro, frota, RH e motoristas.",
       problem:
-        "Cadastro, operação, financeiro e motoristas ficavam em telas e ferramentas separadas, sem um caminho único do pedido do cliente até o faturamento.",
+        "Operação, financeiro, frota e RH rodavam por WhatsApp, Excel e e-mail em lote, com conferência manual e sem prova do que foi feito.",
       contribution:
         "Desenhei e desenvolvi o sistema de ponta a ponta: telas em React e TypeScript, modelagem e regras no Dataverse, plugins em C#, Workers na Cloudflare e deploy automático com migrations de schema.",
-      result: "Sistema em produção, com o portal do cliente, o acompanhamento do motorista e a retaguarda da empresa no mesmo lugar.",
+      result: "Em produção: cada processo tem um caminho no sistema, com aviso automático, comprovante e acesso por perfil.",
       status: "Em produção",
-      modules: [
-        ["Portal do Cliente", "Pedido de serviço com estimativa de rota, prazos por cliente e aprovação de pedidos."],
-        ["Acompanhar motorista", "Link do serviço com as etapas em tempo real e aviso do motorista por notificação."],
-        ["App Motoristas", "Chegada, embarque e desembarque, aditivos e uso sem internet."],
-        ["Operação", "Planner, Formulário Geral, pendências e validação pelo cliente."],
-        ["Financeiro", "Composição de preço, pagantes, recebimentos, despesas e conciliação de cartão."],
-        ["Frota e RH", "Veículos, manutenções, multas, funcionários, treinamentos e comunicados."],
+      solved: [
+        [
+          "Faturamento",
+          "O preço dos serviços ia num Excel no fim do mês e as dúvidas do cliente voltavam em lote, atrasando o faturamento em 15 a 20 dias.",
+          "No portal, o cliente valida serviço a serviço ao longo do mês, e cada dúvida vira conversa no próprio serviço.",
+        ],
+        [
+          "Despesas",
+          "Despesas devolvidas para correção nunca voltavam: em 14 dias, 64 de 210 ficaram paradas porque o motorista não via o motivo.",
+          "O extrato do cartão entra todo dia, casa com a despesa, e a devolução aparece no app com o motivo para corrigir.",
+        ],
+        [
+          "Multas",
+          "O motorista sabia da multa pelo WhatsApp, e o desconto em folha ia para a contabilidade numa lista montada à mão.",
+          "Processo em etapas, aviso e termo no app, parcelamento e planilha pronta para a contabilidade.",
+        ],
+        [
+          "Comunicados",
+          "Não havia como provar que o motorista leu e assinou um comunicado: o relatório era um CSV sem o texto nem a assinatura.",
+          "PDF de evidência com o texto integral, linha do tempo, assinatura e hash SHA-256.",
+        ],
+        [
+          "Serviço sem sinal",
+          "Sem sinal, a finalização do serviço, com voucher assinado e fotos, falhava ou se perdia.",
+          "O envio fica guardado no aparelho e sai sozinho quando a rede volta, sem duplicar.",
+        ],
+        [
+          "Acessos",
+          "Quem trabalhava no escritório enxergava e alterava tudo, inclusive dados do financeiro e do RH.",
+          "Perfis por área, com dois níveis, aplicados no próprio Dataverse.",
+        ],
       ],
       technologies: ["React", "TypeScript", "Vite", "Dataverse", "C#", "Cloudflare Workers", "Power Automate"],
       repository: "Uso interno da empresa",

@@ -814,30 +814,49 @@ img {
   font-size: 14px;
 }
 
-.project-modules {
+.project-solved {
   grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
   padding-top: 24px;
   border-top: 1px solid var(--line);
 }
 
-.project-modules li {
+.project-solved h5 {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-solved ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.project-solved li {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 16px;
+  gap: 8px;
+  padding: 18px;
   border: 1px solid var(--line);
   border-radius: 12px;
 }
 
-.project-modules strong {
+.project-solved strong {
   font-size: 15px;
   font-weight: 600;
 }
 
-.project-modules span {
+.project-solved p {
+  color: var(--soft);
+  font-size: 14px;
+}
+
+.project-solved p + p {
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: 13px;
 }
@@ -1054,7 +1073,7 @@ img {
 
 /* ---------- Responsivo ---------- */
 @media (max-width: 1024px) {
-  .project-modules {
+  .project-solved ul {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1160,7 +1179,7 @@ img {
 }
 
 @media (max-width: 760px) {
-  .project-modules {
+  .project-solved ul {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
