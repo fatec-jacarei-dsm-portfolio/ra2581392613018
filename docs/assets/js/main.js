@@ -172,18 +172,19 @@
       if (list && Array.isArray(items)) list.innerHTML = listItems(items);
     });
 
-    const semester = currentSemester(data.profile.entry);
+    const course = courseStatus(data.profile.entry);
     const since = (data.experience?.[0]?.period || "").match(/\d{4}/)?.[0];
     const status = document.querySelector("[data-stat='status']");
-    if (status && semester) status.textContent = `Cursando o ${semester}DSM${since ? ` · dev desde ${since}` : ""}`;
+    if (status && course) status.textContent = `${course[0].toUpperCase()}${course.slice(1)}${since ? ` · dev desde ${since}` : ""}`;
   }
 
-  // Semestre do curso (1 a 6) calculado pela data; jan–jun = 1º, jul–dez = 2º semestre do ano.
-  function currentSemester(entry, now = new Date()) {
-    if (!entry) return 0;
+  // Situação no curso pela data (jan–jun = 1º, jul–dez = 2º semestre do ano); depois do 6º, formado.
+  function courseStatus(entry, now = new Date()) {
+    if (!entry) return "";
     const term = now.getMonth() < 6 ? 1 : 2;
     const semester = (now.getFullYear() - entry.year) * 2 + term - entry.term + 1;
-    return semester >= 1 && semester <= 6 ? semester : 0;
+    if (semester < 1) return "";
+    return semester <= 6 ? `cursando o ${semester}DSM` : "formado em DSM";
   }
 
   function renderSocialLinks() {
@@ -202,8 +203,8 @@
     const education = data.education[0];
     document.querySelectorAll("[data-education]").forEach((element) => {
       let value = education[element.dataset.education];
-      const semester = currentSemester(data.profile.entry);
-      if (value && element.dataset.education === "period" && semester) value += ` · cursando o ${semester}DSM`;
+      const course = courseStatus(data.profile.entry);
+      if (value && element.dataset.education === "period" && course) value += ` · ${course}`;
       if (value) element.textContent = value;
     });
 
