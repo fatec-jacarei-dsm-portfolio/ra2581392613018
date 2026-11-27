@@ -79,42 +79,18 @@ window.PORTFOLIO_DATA = {
       description:
         "Sistema interno da Betinhos Executive Service, usado por clientes, operação, financeiro, frota, RH e motoristas.",
       problem:
-        "Operação, financeiro, frota e RH rodavam por WhatsApp, Excel e e-mail em lote, com conferência manual e sem prova do que foi feito.",
+        "A empresa rodava em WhatsApp, planilhas e conferência manual, com retrabalho e pouco registro do que era feito.",
       contribution:
         "Desenhei e desenvolvi o sistema de ponta a ponta: telas em React e TypeScript, modelagem e regras no Dataverse, plugins em C#, Workers na Cloudflare e deploy automático com migrations de schema.",
-      result: "Em produção: cada processo tem um caminho no sistema, com aviso automático, comprovante e acesso por perfil.",
+      result: "Operação, financeiro, frota e RH passaram a trabalhar num sistema só, com menos retrabalho e tudo registrado.",
       status: "Em produção",
       solved: [
-        [
-          "Faturamento",
-          "O preço dos serviços ia num Excel no fim do mês e as dúvidas do cliente voltavam em lote, atrasando o faturamento em 15 a 20 dias.",
-          "No portal, o cliente valida serviço a serviço ao longo do mês, e cada dúvida vira conversa no próprio serviço.",
-        ],
-        [
-          "Despesas",
-          "Despesas devolvidas para correção nunca voltavam: em 14 dias, 64 de 210 ficaram paradas porque o motorista não via o motivo.",
-          "O extrato do cartão entra todo dia, casa com a despesa, e a devolução aparece no app com o motivo para corrigir.",
-        ],
-        [
-          "Multas",
-          "O motorista sabia da multa pelo WhatsApp, e o desconto em folha ia para a contabilidade numa lista montada à mão.",
-          "Processo em etapas, aviso e termo no app, parcelamento e planilha pronta para a contabilidade.",
-        ],
-        [
-          "Comunicados",
-          "Não havia como provar que o motorista leu e assinou um comunicado: o relatório era um CSV sem o texto nem a assinatura.",
-          "PDF de evidência com o texto integral, linha do tempo, assinatura e hash SHA-256.",
-        ],
-        [
-          "Serviço sem sinal",
-          "Sem sinal, a finalização do serviço, com voucher assinado e fotos, falhava ou se perdia.",
-          "O envio fica guardado no aparelho e sai sozinho quando a rede volta, sem duplicar.",
-        ],
-        [
-          "Acessos",
-          "Quem trabalhava no escritório enxergava e alterava tudo, inclusive dados do financeiro e do RH.",
-          "Perfis por área, com dois níveis, aplicados no próprio Dataverse.",
-        ],
+        ["Faturamento", "O faturamento dependia de planilhas e de idas e voltas com o cliente.", "O cliente valida os serviços ao longo do mês, sem esperar o fechamento."],
+        ["Despesas", "As despesas de viagem dependiam de lançamento e conferência manual.", "As compras entram sozinhas e voltam ao motorista quando precisam de correção."],
+        ["Multas e folha", "Multas e descontos eram tratados por mensagem e listas feitas à mão.", "Um processo só, do aviso ao motorista até o desconto em folha."],
+        ["Comunicados", "Não havia como comprovar que a equipe recebeu e leu os comunicados.", "Cada comunicado gera um comprovante de leitura e assinatura."],
+        ["Serviço em campo", "Sem internet, o registro do serviço podia se perder.", "O app guarda tudo e envia quando a conexão volta."],
+        ["Acessos", "Todo mundo no escritório via e alterava todos os dados.", "Cada área vê e altera só o que é dela."],
       ],
       technologies: ["React", "TypeScript", "Vite", "Dataverse", "C#", "Cloudflare Workers", "Power Automate"],
       repository: "Uso interno da empresa",
