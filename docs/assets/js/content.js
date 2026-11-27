@@ -116,47 +116,21 @@ window.PORTFOLIO_DATA = {
     },
     // ---- Pessoais ----
     {
-      name: "TapFinance",
-      category: "pessoais",
-      type: "Pessoal · Mobile",
-      semester: "2DSM – 2º Sem. 2026",
-      description:
-        "Aplicativo Android, local-first, para registrar receitas e despesas em poucos segundos. Valores em centavos no SQLite, sem conta, backend ou nuvem. APK publicado nas releases do GitHub.",
-      contribution:
-        "Projeto individual: concepção, design das telas, modelagem do banco local, build Android com Expo e publicação das releases.",
-      problem: "Registrar gastos no dia a dia costuma exigir conta, internet e muitos toques.",
-      result: "App Android que funciona offline, sem conta nem nuvem, com APK publicado nas releases do GitHub.",
-      status: "Publicado",
-      technologies: ["React Native", "Expo", "TypeScript", "SQLite"],
-      repository: "https://github.com/renanrmsantos14/tapfinance",
-    },
-    {
-      name: "Painel Agentes",
-      category: "pessoais",
-      type: "Pessoal · Desktop",
-      semester: "2DSM – 2º Sem. 2026",
-      description:
-        "Aplicativo desktop para acompanhar e organizar sessões de agentes de IA em um único painel, com versionamento automático de build.",
-      contribution:
-        "Projeto individual: interface em TypeScript, empacotamento nativo com Tauri e scripts de build, versão e release.",
-      problem: "Acompanhar várias sessões de agentes de IA em janelas separadas é confuso e fácil de perder.",
-      result: "App desktop nativo que reúne as sessões em um só painel, com versionamento automático de build.",
-      technologies: ["TypeScript", "Vite", "Tauri", "Rust"],
-      repository: "https://github.com/renanrmsantos14/painel-agentes",
-    },
-    {
       name: "Site Grupo Mendonça",
       category: "pessoais",
-      type: "Pessoal · Web",
+      type: "Freelance · Web",
       semester: "2DSM – 2º Sem. 2026",
       description:
-        "Site institucional com catálogo e checkout, servidor Node.js e banco SQLite, com fluxo completo de pedidos, gestão e acompanhamento.",
+        "Site do Grupo Mendonça, de São Paulo, que faz coffee break para empresas e eventos, encomendas de bolos e salgados e atendimento com café em velórios.",
       contribution:
-        "Projeto individual: direção de design, 20 páginas em HTML/CSS, servidor Node.js, testes automatizados e pipeline de build com versionamento.",
-      problem: "Um negócio precisava vender on-line com catálogo, checkout e acompanhamento de pedidos.",
-      result: "Site com 20 páginas, servidor Node.js com SQLite, testes automatizados e build versionado.",
-      technologies: ["HTML", "CSS", "JavaScript", "Node.js", "SQLite"],
+        "Projeto individual, sob contrato: direção de design, as páginas do site, a vitrine, o formulário de pedido e a publicação na Cloudflare.",
+      problem: "O grupo dependia de conversa no WhatsApp para mostrar o que faz e receber pedidos, sem um lugar que explicasse os serviços.",
+      result: "Site no ar com a vitrine de encomendas e o orçamento de coffee break em poucos passos. Cada pedido chega à equipe na hora, e o WhatsApp está a um toque em todas as páginas.",
+      status: "Em produção",
+      technologies: ["HTML", "CSS", "JavaScript", "Node.js", "Cloudflare Pages"],
       repository: "https://github.com/renanrmsantos14/site-grupo-mendonca",
+      link: "https://www.grupomzcoffee.com.br",
+      linkLabel: "Acessar site",
     },
     {
       name: "Segmentador Recursivo de Imagens",
