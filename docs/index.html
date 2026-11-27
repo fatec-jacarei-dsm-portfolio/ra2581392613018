@@ -7,9 +7,10 @@
       name="description"
       content="Portfólio acadêmico de Renan Rodrigues Mendonca dos Santos, desenvolvedor de web apps e estudante de Desenvolvimento de Software Multiplataforma na Fatec Jacareí."
     />
-    <meta name="theme-color" content="#f4f4f0" />
+    <meta name="theme-color" content="#060b18" />
     <title>Renan | Portfólio DSM · Fatec Jacareí</title>
     <script>document.documentElement.classList.add("js");</script>
+    <link rel="preload" href="assets/fonts/geist-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <script src="assets/js/content.js" defer></script>
     <script src="assets/js/main.js" defer></script>
@@ -18,9 +19,9 @@
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
     <header class="site-header" data-header>
-      <a class="brand" href="#inicio" aria-label="Renan, início">
+      <a class="brand" href="#inicio">
         <span class="brand-mark" aria-hidden="true">R</span>
-        <span>Renan</span>
+        <span>Renan<span class="sr-only">, início</span></span>
       </a>
 
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
@@ -40,74 +41,78 @@
     <main id="conteudo">
       <!-- Apresentação -->
       <section id="inicio" class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Portfólio acadêmico · Fatec Jacareí · DSM</p>
-          <h1 id="hero-title">Olá, eu sou <strong data-profile="name">Renan.</strong></h1>
-          <p class="hero-intro" data-profile="intro">
-            Desenvolvo web apps claros, responsivos e construídos para resolver problemas reais.
-          </p>
-          <div class="hero-actions">
-            <a class="primary-link" href="#projetos">Ver projetos <img class="icon" src="assets/icons/arrow-down-right.svg" alt="" width="16" height="16" /></a>
-            <a class="secondary-link" href="#contato">Contato</a>
-          </div>
-          <dl class="hero-stats" aria-label="Resumo">
-            <div><dt>Projetos</dt><dd data-stat="projects">10</dd></div>
-            <div><dt>Ingresso</dt><dd data-stat="semester">2026</dd></div>
-            <div><dt>Na Betinhos desde</dt><dd data-stat="since">2023</dd></div>
-          </dl>
+        <div class="hero-backdrop" aria-hidden="true">
+          <span class="hero-glow"></span>
+          <span class="hero-grid"></span>
+          <span class="hero-rings"></span>
         </div>
 
-        <figure class="hero-photo reveal" data-delay="1">
+        <div class="hero-inner">
           <img
+            class="hero-photo"
             src="assets/img/perfil.png"
             alt="Retrato de Renan com camisa preta e braços cruzados"
             width="1041"
             height="1435"
             fetchpriority="high"
           />
-        </figure>
+          <span class="hero-fade" aria-hidden="true"></span>
+
+          <div class="hero-copy">
+            <p class="eyebrow">Fatec Jacareí · DSM</p>
+            <h1 id="hero-title" data-profile="displayName">Renan Santos</h1>
+            <p class="hero-intro" data-profile="intro">
+              Desenvolvo web apps claros e responsivos para resolver problemas reais. Em produção na Betinhos Executive Service desde 2023.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projetos">Ver projetos <img class="icon" src="assets/icons/arrow-down-right.svg" alt="" width="16" height="16" /></a>
+              <a class="btn btn-ghost" data-social="linkedin" href="https://www.linkedin.com/in/renan-santos-40662738b" target="_blank" rel="noreferrer">LinkedIn <img class="icon" src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16" /></a>
+            </div>
+          </div>
+
+          <aside class="hero-stack" aria-labelledby="stack-title">
+            <p id="stack-title" class="card-label">Com o que eu trabalho</p>
+            <ul class="stack-list" data-list="stack">
+              <li>React</li><li>TypeScript</li><li>Node.js</li><li>PostgreSQL</li><li>Power Platform</li><li>Dataverse</li>
+            </ul>
+            <p class="hero-status"><span class="status-dot" aria-hidden="true"></span><span data-stat="status">Estudante de DSM · dev desde 2023</span></p>
+          </aside>
+        </div>
       </section>
 
       <section id="sobre" class="about section-shell" aria-labelledby="about-title">
         <div class="section-heading reveal">
-          <p class="section-index">01</p>
-          <h2 id="about-title">Sobre mim</h2>
-          <p>Uma trajetória em construção, registrada por decisões e entregas reais.</p>
+          <p class="eyebrow">01 · Sobre</p>
+          <h2 id="about-title">Aprendo construindo coisas que precisam funcionar.</h2>
         </div>
 
         <div class="about-grid">
-          <p class="about-statement reveal">
-            Aprendo construindo produtos digitais que precisam funcionar bem para pessoas reais.
-          </p>
+          <article class="about-card reveal">
+            <h3>Formação e experiência</h3>
+            <p data-profile="about">Sou estudante de Desenvolvimento de Software Multiplataforma na Fatec Jacareí. Desde junho de 2023 trabalho na Betinhos Executive Service como desenvolvedor.</p>
+          </article>
 
-          <div class="about-details reveal" data-delay="1">
-            <article class="about-detail">
-              <h3>Formação e experiência</h3>
-              <p data-profile="about">Sou estudante de Desenvolvimento de Software Multiplataforma na Fatec Jacareí. Desde junho de 2023 trabalho na Betinhos Executive Service como desenvolvedor voltado à melhoria contínua.</p>
-            </article>
+          <article class="about-card reveal" data-delay="1">
+            <h3>Objetivos profissionais</h3>
+            <p data-profile="objective">Busco oportunidades para desenvolver aplicações web completas, com atenção a interfaces responsivas, experiência do usuário e qualidade de código.</p>
+          </article>
 
-            <article class="about-detail">
-              <h3>Objetivos profissionais</h3>
-              <p data-profile="objective">Busco oportunidades para desenvolver aplicações web completas, com atenção a interfaces responsivas, experiência do usuário e qualidade de código.</p>
-            </article>
-
-            <article class="about-detail">
-              <h3>Áreas de interesse</h3>
-              <ul class="tag-list" data-list="profile-interests"><li>Desenvolvimento web</li><li>Apps mobile e desktop</li><li>Integração de dados</li></ul>
-            </article>
-          </div>
+          <article class="about-card reveal" data-delay="2">
+            <h3>Áreas de interesse</h3>
+            <ul class="tag-list" data-list="profile-interests"><li>Desenvolvimento web</li><li>Aplicações mobile</li><li>Integração de dados</li><li>Automações</li><li>Plataformas low-code</li></ul>
+          </article>
         </div>
       </section>
 
       <!-- Projetos -->
       <section id="projetos" class="projects section-shell" aria-labelledby="projects-title">
-        <div class="projects-heading reveal">
-          <div class="section-heading">
-            <p class="section-index">02</p>
-            <h2 id="projects-title">Projetos</h2>
+        <div class="projects-heading">
+          <div class="section-heading reveal">
+            <p class="eyebrow">02 · Projetos</p>
+            <h2 id="projects-title">Problema, o que eu fiz e resultado.</h2>
             <p>Acadêmicos, profissionais e pessoais. Em cada um, a contribuição pessoal vem em destaque.</p>
           </div>
-          <div class="project-filters" role="group" aria-label="Filtrar projetos">
+          <div class="project-filters reveal" role="group" aria-label="Filtrar projetos">
             <button type="button" data-filter="todos" aria-pressed="true">Todos</button>
             <button type="button" data-filter="academicos" aria-pressed="false">Acadêmicos</button>
             <button type="button" data-filter="profissionais" aria-pressed="false">Profissionais</button>
@@ -116,33 +121,35 @@
         </div>
 
         <div id="projects-grid" class="projects-grid" aria-live="polite">
-          <section class="project-group">
-            <header class="project-group-heading"><h3>Acadêmicos</h3></header>
-            <div class="project-cards">
-              <article class="project-card project-card-featured">
-                <div class="project-content">
-                  <p class="project-meta"><span>Projeto Integrador (ABP)</span><span class="project-semester">2DSM – 2º Sem. 2026</span></p>
-                  <h3>GreenER</h3>
-                  <p class="project-description">Plataforma de GreenOps da equipe Green Stack que estima o consumo energético e as emissões de CO₂e de aplicações a partir de métricas de infraestrutura e da matriz elétrica regional.</p>
-                  <div class="project-contribution"><h4>Contribuição pessoal</h4><p>Base do front-end em React e TypeScript, telas de filtros e de comparação de serviços; endpoints de serviços e coletas; schema, seed e repositórios SQL; deploy no Render e documentação das sprints.</p></div>
-                  <dl>
-                    <div><dt>Tecnologias</dt><dd>React, TypeScript, Vite, Node.js, PostgreSQL, Docker, Render</dd></div>
-                    <div><dt>Repositório</dt><dd>github.com/greenstackfatec-tech/greener</dd></div>
-                  </dl>
-                  <a class="project-card-link" href="https://github.com/greenstackfatec-tech/greener" target="_blank" rel="noreferrer">Abrir repositório <img class="icon" src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16" /></a>
+          <section class="project-group" aria-labelledby="group-academicos">
+            <header class="project-group-heading"><h3 id="group-academicos">Acadêmicos</h3></header>
+            <div class="project-cards project-cards-cases">
+              <article class="project-card project-case">
+                <div class="project-side">
+                  <p class="project-meta"><span>Projeto Integrador (ABP)</span><span>2DSM – 2º Sem. 2026</span></p>
+                  <h4>GreenER</h4>
+                  <p class="project-description">Plataforma de GreenOps da equipe Green Stack que estima o consumo energético e as emissões de CO₂e de aplicações.</p>
+                  <ul class="tag-list"><li>React</li><li>TypeScript</li><li>Node.js</li><li>PostgreSQL</li><li>Render</li></ul>
+                  <div class="project-actions"><a class="project-link" href="https://github.com/greenstackfatec-tech/greener" target="_blank" rel="noreferrer">Abrir repositório <img class="icon" src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16" /></a></div>
+                </div>
+                <div class="project-steps">
+                  <div><h5>Problema</h5><p>Equipes de desenvolvimento não sabem quanta energia suas aplicações consomem nem quanto CO₂e elas geram.</p></div>
+                  <div><h5>O que eu fiz</h5><p>Base do front-end em React e TypeScript, telas de filtros e de comparação de serviços, endpoints, schema e repositórios SQL, deploy no Render.</p></div>
+                  <div><h5>Resultado</h5><p>Plataforma publicada no Render que estima consumo e emissões por serviço, região e período.</p></div>
                 </div>
               </article>
-              <article class="project-card project-card-featured">
-                <div class="project-content">
-                  <p class="project-meta"><span>Projeto Integrador (ABP)</span><span class="project-semester">1DSM – 1º Sem. 2026</span></p>
-                  <h3>Scrum Dungeon</h3>
-                  <p class="project-description">RPG educativo criado pela equipe Octopus Code para ensinar Scrum por meio de cinco níveis progressivos, desafios interativos, avaliação de desempenho e certificado digital.</p>
-                  <div class="project-contribution"><h4>Contribuição pessoal</h4><p>Front-end das telas de login, cadastro e página inicial; capítulo 4 e seu minigame; responsividade; testes de interface e geração do certificado em PDF.</p></div>
-                  <dl>
-                    <div><dt>Tecnologias</dt><dd>HTML, CSS, JavaScript, EJS, Node.js, Express, PostgreSQL</dd></div>
-                    <div><dt>Repositório</dt><dd>github.com/octopusCode26/scrum-dungeon</dd></div>
-                  </dl>
-                  <a class="project-card-link" href="https://github.com/octopusCode26/scrum-dungeon" target="_blank" rel="noreferrer">Abrir repositório <img class="icon" src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16" /></a>
+              <article class="project-card project-case">
+                <div class="project-side">
+                  <p class="project-meta"><span>Projeto Integrador (ABP)</span><span>1DSM – 1º Sem. 2026</span></p>
+                  <h4>Scrum Dungeon</h4>
+                  <p class="project-description">RPG educativo da equipe Octopus Code para ensinar Scrum.</p>
+                  <ul class="tag-list"><li>JavaScript</li><li>EJS</li><li>Express</li><li>PostgreSQL</li></ul>
+                  <div class="project-actions"><a class="project-link" href="https://github.com/octopusCode26/scrum-dungeon" target="_blank" rel="noreferrer">Abrir repositório <img class="icon" src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16" /></a></div>
+                </div>
+                <div class="project-steps">
+                  <div><h5>Problema</h5><p>Aprender Scrum só pela teoria é abstrato e pouco envolvente para quem está começando.</p></div>
+                  <div><h5>O que eu fiz</h5><p>Login, cadastro e página inicial; capítulo 4 e seu minigame; responsividade; certificado em PDF.</p></div>
+                  <div><h5>Resultado</h5><p>RPG jogável com cinco níveis, avaliação de desempenho e certificado digital.</p></div>
                 </div>
               </article>
             </div>
@@ -155,43 +162,43 @@
 
       <!-- Informações complementares -->
       <section id="trajetoria" class="trajectory section-shell" aria-labelledby="trajectory-title">
-        <div class="trajectory-title reveal">
-          <p class="section-index">03</p>
-          <h2 id="trajectory-title">Formação e repertório</h2>
+        <div class="section-heading reveal">
+          <p class="eyebrow">03 · Trajetória</p>
+          <h2 id="trajectory-title">Formação e repertório.</h2>
         </div>
 
         <div class="trajectory-grid">
-          <article class="education-block reveal">
+          <article class="info-card education-block reveal">
             <h3>Formação acadêmica</h3>
             <p class="education-course" data-education="course">Desenvolvimento de Software Multiplataforma</p>
             <p data-education="institution">Fatec Jacareí</p>
-            <p data-education="period">Ingresso em 2026</p>
+            <p class="muted" data-education="period">Ingresso em 2026</p>
           </article>
 
-          <article class="experience-block reveal" data-delay="1">
+          <article class="info-card experience-block reveal" data-delay="1">
             <h3>Experiência profissional</h3>
             <ul data-list="experience">
               <li class="experience-item"><span class="experience-period">Junho de 2023 – atual</span><div><strong>Desenvolvedor</strong><span>Betinhos Executive Service</span><p>Desenvolvimento web e melhoria contínua.</p></div></li>
             </ul>
           </article>
 
-          <article class="courses-block reveal" data-block="courses" hidden>
+          <article class="info-card courses-block reveal" data-block="courses" hidden>
             <h3>Cursos e certificações</h3>
             <ul data-list="courses"></ul>
           </article>
 
-          <div class="knowledge-block reveal" data-delay="1">
-            <section>
+          <div class="info-card knowledge-block reveal">
+            <section class="knowledge-skills">
               <h3>Conhecimentos técnicos</h3>
               <ul data-list="skills"><li>JavaScript</li><li>TypeScript</li><li>HTML</li><li>CSS</li><li>React</li><li>Node.js</li></ul>
             </section>
             <section>
               <h3>Idiomas</h3>
-              <ul data-list="languages"><li>Português – nativo</li><li>Inglês – fluente</li></ul>
+              <ul class="plain-list" data-list="languages"><li>Português – nativo</li><li>Inglês – fluente</li></ul>
             </section>
             <section>
               <h3>Interesses</h3>
-              <ul data-list="interests"><li>Desenvolvimento de web apps</li><li>Interfaces acessíveis</li><li>Produto digital</li></ul>
+              <ul class="plain-list" data-list="interests"><li>Desenvolvimento web</li><li>Aplicações mobile</li><li>Integração de dados</li><li>Automações</li><li>Plataformas low-code</li></ul>
             </section>
           </div>
         </div>
@@ -200,30 +207,31 @@
       <!-- Vídeos -->
       <section id="videos" class="videos section-shell" aria-labelledby="videos-title">
         <div class="section-heading reveal">
-          <p class="section-index">04</p>
-          <h2 id="videos-title">Vídeos de apresentação</h2>
-          <p>Pitches de cerca de um minuto, produzidos nas avaliações dos semestres pares, apresentando as contribuições nas duas ABPs mais recentes.</p>
+          <p class="eyebrow">04 · Vídeos</p>
+          <h2 id="videos-title">Pitches de apresentação.</h2>
+          <p>Vídeos curtos, gravados nos semestres pares, sobre as contribuições nas duas ABPs mais recentes.</p>
         </div>
         <div id="video-list" class="video-list">
-          <article class="video-item reveal"><span>2DSM</span><p>Projetos de 1DSM e 2DSM</p><strong class="video-pending">Em breve</strong></article>
-          <article class="video-item reveal" data-delay="1"><span>4DSM</span><p>Projetos de 3DSM e 4DSM</p><strong class="video-pending">Em breve</strong></article>
-          <article class="video-item reveal" data-delay="2"><span>6DSM</span><p>Projetos de 5DSM e 6DSM</p><strong class="video-pending">Em breve</strong></article>
+          <article class="video-item reveal"><span class="video-label">2DSM</span><p>Projetos de 1DSM e 2DSM</p><strong class="video-pending">Em breve</strong></article>
+          <article class="video-item reveal" data-delay="1"><span class="video-label">4DSM</span><p>Projetos de 3DSM e 4DSM</p><strong class="video-pending">Em breve</strong></article>
+          <article class="video-item reveal" data-delay="2"><span class="video-label">6DSM</span><p>Projetos de 5DSM e 6DSM</p><strong class="video-pending">Em breve</strong></article>
         </div>
       </section>
     </main>
 
     <!-- Contato: apenas redes profissionais -->
     <footer id="contato" class="site-footer">
-      <div>
-        <p class="section-index">05</p>
-        <p>Quer conhecer melhor meu trabalho?</p>
-        <h2>Vamos conversar.</h2>
-        <p class="footer-policy">Contato apenas por redes profissionais.</p>
+      <div class="contact-card reveal">
+        <div>
+          <p class="eyebrow">05 · Contato</p>
+          <h2>Vamos conversar.</h2>
+          <p class="footer-policy">Contato apenas por redes profissionais.</p>
+        </div>
+        <nav class="contact-links" aria-label="Redes profissionais">
+          <a class="btn btn-primary" data-social="linkedin" href="https://www.linkedin.com/in/renan-santos-40662738b" target="_blank" rel="noreferrer">LinkedIn <img class="icon" src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16" /></a>
+          <a class="btn btn-ghost" data-social="github" href="https://github.com/renanrmsantos14" target="_blank" rel="noreferrer">GitHub <img class="icon" src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16" /></a>
+        </nav>
       </div>
-      <nav aria-label="Redes profissionais">
-        <a data-social="github" href="https://github.com/renanrmsantos14" target="_blank" rel="noreferrer">GitHub <img class="icon" src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16" /></a>
-        <a data-social="linkedin" href="https://www.linkedin.com/in/renan-santos-40662738b" target="_blank" rel="noreferrer">LinkedIn <img class="icon" src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16" /></a>
-      </nav>
       <p class="footer-note">Renan Rodrigues Mendonca dos Santos · RA 2581392613018 · Portfólio DSM <span data-year></span></p>
     </footer>
   </body>

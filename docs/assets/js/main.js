@@ -17,36 +17,53 @@
       .replaceAll("'", "&#039;");
 
   const isValidUrl = (value) => /^https:\/\//i.test(value || "");
+  const listItems = (items) => items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+  const CASE_CATEGORY = "academicos";
 
   /* ---------- Projetos ---------- */
   function projectTemplate(project, index) {
-    const tags = project.technologies.map((tech) => `<li>${escapeHtml(tech)}</li>`).join("");
+    const tags = listItems(project.technologies);
     const projectUrl = project.link || project.repository;
-    const repositoryText = isValidUrl(project.repository)
-      ? project.repository.replace(/^https:\/\/(www\.)?/, "")
-      : project.repository || "Link em breve";
+    const isCase = project.case || project.category === CASE_CATEGORY;
     const action = isValidUrl(projectUrl)
-      ? `<a class="project-card-link" href="${escapeHtml(projectUrl)}" target="_blank" rel="noreferrer">${escapeHtml(project.linkLabel || "Abrir repositório")} ${ICON("arrow-up-right")}</a>`
-      : `<span class="project-card-link project-card-link-muted">${escapeHtml(project.repository || "Repositório em breve")}</span>`;
-    const period = project.period ? `<span class="project-period">${escapeHtml(project.period)}</span>` : "";
+      ? `<a class="project-link" href="${escapeHtml(projectUrl)}" target="_blank" rel="noreferrer">${escapeHtml(project.linkLabel || "Abrir repositório")} ${ICON("arrow-up-right")}</a>`
+      : `<span class="project-link project-link-muted">${escapeHtml(project.repository || "Repositório em breve")}</span>`;
+    // Link do site com repositório fechado: a Fatec pede a informação do repositório em todo projeto.
+    const privateRepo = isValidUrl(project.link) && project.repository && !isValidUrl(project.repository)
+      ? `<span class="project-link project-link-muted">${escapeHtml(project.repository)}</span>`
+      : "";
+    const actions = `<div class="project-actions">${action}${privateRepo}</div>`;
+    const period = project.period ? `<p class="project-period">${escapeHtml(project.period)}</p>` : "";
+    const status = project.status ? `<p class="project-status">${escapeHtml(project.status)}</p>` : "";
+    const description = `<p class="project-description">${escapeHtml(project.description)}</p>`;
+    const steps = [
+      ["Problema", project.problem],
+      ["O que eu fiz", project.contribution],
+      ["Resultado", project.result],
+    ]
+      .filter(([, text]) => text)
+      .map(([title, text]) => `<div><h5>${title}</h5><p>${escapeHtml(text)}</p></div>`)
+      .join("");
+    const solved = project.solved
+      ? `<div class="project-solved"><h5>Problemas resolvidos</h5><ul>${project.solved
+          .map(([title, problem, solution]) => `<li><strong>${escapeHtml(title)}</strong><p>${escapeHtml(problem)}</p><p>${escapeHtml(solution)}</p></li>`)
+          .join("")}</ul></div>`
+      : "";
 
     return `
-      <article class="project-card reveal${project.featured ? " project-card-featured" : ""}" style="--delay: ${index % 3}">
-        <div class="project-content">
-          <p class="project-meta"><span>${escapeHtml(project.type)}</span><span class="project-semester">${escapeHtml(project.semester)}</span></p>
-          <h3>${escapeHtml(project.name)}</h3>
+      <article class="project-card reveal${isCase ? " project-case" : ""}" style="--delay: ${index % 2}">
+        <div class="project-side">
+          <p class="project-meta"><span>${escapeHtml(project.type)}</span><span>${escapeHtml(project.semester)}</span></p>
+          <h4>${escapeHtml(project.name)}</h4>
           ${period}
-          <p class="project-description">${escapeHtml(project.description)}</p>
-          <div class="project-contribution">
-            <h4>Contribuição pessoal</h4>
-            <p>${escapeHtml(project.contribution)}</p>
-          </div>
-          <dl>
-            <div><dt>Tecnologias</dt><dd><ul class="tag-list">${tags}</ul></dd></div>
-            <div><dt>Repositório</dt><dd>${escapeHtml(repositoryText)}</dd></div>
-          </dl>
-          ${action}
+          ${description}
+          <ul class="tag-list" aria-label="Tecnologias">${tags}</ul>
+          ${status}
+          ${isCase ? actions : ""}
         </div>
+        <div class="project-steps">${steps}</div>
+        ${solved}
+        ${isCase ? "" : actions}
       </article>`;
   }
 
@@ -58,13 +75,15 @@
           <h3 id="group-${category.key}">${escapeHtml(category.label)} <span>${projects.length}</span></h3>
           <p>${escapeHtml(category.description)}</p>
         </header>
-        <div class="project-cards">${projects.map(projectTemplate).join("")}</div>
+        <div class="project-cards${category.key === CASE_CATEGORY ? " project-cards-cases" : ""}">${projects.map(projectTemplate).join("")}</div>
       </section>`;
   }
 
   function renderProjects(filter = "todos") {
     if (!projectGrid || !data) return;
     const categories = filter === "todos" ? data.categories : data.categories.filter((c) => c.key === filter);
+    // O observer é global: sem isso, cards removidos pelo filtro ficariam observados para sempre.
+    if (revealObserver) projectGrid.querySelectorAll(".reveal").forEach((element) => revealObserver.unobserve(element));
     projectGrid.innerHTML = categories
       .map((category) => groupTemplate(category, data.projects.filter((p) => p.category === category.key)))
       .join("");
@@ -113,59 +132,50 @@
   }
 
   /* ---------- Revelação ao rolar ---------- */
+  // Um observer só: observar de novo o mesmo elemento não duplica callbacks.
+  const revealObserver =
+    reduceMotion.matches || !("IntersectionObserver" in window)
+      ? null
+      : new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -24px" },
+        );
+
   function initRevealObserver(root = document) {
-    const elements = [...root.querySelectorAll(".reveal:not(.is-visible)")];
-    elements.forEach((element) => {
+    root.querySelectorAll(".reveal:not(.is-visible)").forEach((element) => {
       const delay = element.dataset.delay;
       if (delay) element.style.setProperty("--delay", delay);
+      if (revealObserver) revealObserver.observe(element);
+      else element.classList.add("is-visible");
     });
-
-    if (reduceMotion.matches || !("IntersectionObserver" in window)) {
-      elements.forEach((element) => element.classList.add("is-visible"));
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -24px" },
-    );
-
-    elements.forEach((element) => observer.observe(element));
   }
 
   /* ---------- Perfil, hero e contatos ---------- */
   function renderProfile() {
     if (!data) return;
     document.querySelectorAll("[data-profile]").forEach((element) => {
-      const key = element.dataset.profile;
-      const value = data.profile[key];
-      if (!value) return;
-      element.textContent = key === "name" ? `${value}.` : value;
-    });
-
-    const interests = document.querySelector("[data-list='profile-interests']");
-    if (interests && Array.isArray(data.profile.interests)) {
-      interests.innerHTML = data.profile.interests.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
-    }
-
-    const semester = currentSemester(data.profile.entry);
-    const semesterStat = document.querySelector("[data-stat='semester']");
-    if (semester && semesterStat?.previousElementSibling) semesterStat.previousElementSibling.textContent = "Semestre atual";
-    const stats = {
-      projects: String(data.projects.length).padStart(2, "0"),
-      semester: semester ? `${semester}DSM` : "",
-      since: (data.experience?.[0]?.period || "").split(" ")[2] || "",
-    };
-    document.querySelectorAll("[data-stat]").forEach((element) => {
-      const value = stats[element.dataset.stat];
+      const value = data.profile[element.dataset.profile];
       if (value) element.textContent = value;
     });
+
+    [
+      ["profile-interests", data.profile.interests],
+      ["stack", data.profile.stack],
+    ].forEach(([key, items]) => {
+      const list = document.querySelector(`[data-list='${key}']`);
+      if (list && Array.isArray(items)) list.innerHTML = listItems(items);
+    });
+
+    const semester = currentSemester(data.profile.entry);
+    const since = (data.experience?.[0]?.period || "").match(/\d{4}/)?.[0];
+    const status = document.querySelector("[data-stat='status']");
+    if (status && semester) status.textContent = `Cursando o ${semester}DSM${since ? ` · dev desde ${since}` : ""}`;
   }
 
   // Semestre do curso (1 a 6) calculado pela data; jan–jun = 1º, jul–dez = 2º semestre do ano.
@@ -179,9 +189,10 @@
   function renderSocialLinks() {
     if (!data) return;
     Object.entries(data.social).forEach(([network, url]) => {
-      const current = document.querySelector(`[data-social="${network}"]`);
-      if (!current || !isValidUrl(url)) return;
-      current.href = url;
+      if (!isValidUrl(url)) return;
+      document.querySelectorAll(`[data-social="${network}"]`).forEach((link) => {
+        link.href = url;
+      });
     });
   }
 
@@ -226,7 +237,7 @@
           ([group, items]) => `
           <li class="skill-group">
             <h4>${escapeHtml(group)}</h4>
-            <ul class="tag-list">${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+            <ul class="tag-list">${listItems(items)}</ul>
           </li>`,
         )
         .join("");
@@ -235,7 +246,7 @@
     ["languages", "interests"].forEach((key) => {
       const list = document.querySelector(`[data-list="${key}"]`);
       if (!list || !Array.isArray(data[key])) return;
-      list.innerHTML = data[key].map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+      list.innerHTML = listItems(data[key]);
     });
   }
 
@@ -248,7 +259,7 @@
         const action = isValidUrl(video.url)
           ? `<a class="video-link" href="${escapeHtml(video.url)}" target="_blank" rel="noreferrer">Assistir ${ICON("arrow-up-right")}</a>`
           : '<strong class="video-pending">Em breve</strong>';
-        return `<article class="video-item reveal" style="--delay: ${index}"><span>${escapeHtml(video.label)}</span><p>${escapeHtml(video.note)}</p>${action}</article>`;
+        return `<article class="video-item reveal" style="--delay: ${index}"><span class="video-label">${escapeHtml(video.label)}</span><p>${escapeHtml(video.note)}</p>${action}</article>`;
       })
       .join("");
   }
