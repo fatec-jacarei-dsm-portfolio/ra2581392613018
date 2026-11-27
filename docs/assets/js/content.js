@@ -18,10 +18,10 @@ window.PORTFOLIO_DATA = {
       "Busco oportunidades para desenvolver aplicações web completas, com atenção a interfaces responsivas, experiência do usuário, qualidade de código e manutenção.",
     interests: [
       "Desenvolvimento web",
-      "Apps mobile e desktop",
+      "Aplicações mobile",
       "Integração de dados",
-      "Automação de processos",
-      "UX e produto digital",
+      "Automações",
+      "Plataformas low-code",
     ],
     // Semestre atual é calculado por data a partir do ingresso (main.js).
     entry: { year: 2026, term: 1 },
@@ -177,7 +177,7 @@ window.PORTFOLIO_DATA = {
   },
 
   languages: ["Português – nativo", "Inglês – fluente"],
-  interests: ["Desenvolvimento de web apps", "Interfaces acessíveis", "Produto digital", "Automação e dados"],
+  interests: ["Desenvolvimento web", "Aplicações mobile", "Integração de dados", "Automações", "Plataformas low-code"],
 
   videos: [
     { label: "2DSM", url: "https://youtu.be/wSlFU4QRQfU", note: "Apresentação dos projetos de 1DSM e 2DSM" },
