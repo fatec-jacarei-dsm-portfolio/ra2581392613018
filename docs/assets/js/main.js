@@ -28,9 +28,14 @@
     const action = isValidUrl(projectUrl)
       ? `<a class="project-link" href="${escapeHtml(projectUrl)}" target="_blank" rel="noreferrer">${escapeHtml(project.linkLabel || "Abrir repositório")} ${ICON("arrow-up-right")}</a>`
       : `<span class="project-link project-link-muted">${escapeHtml(project.repository || "Repositório em breve")}</span>`;
+    // Link do site com repositório fechado: a Fatec pede a informação do repositório em todo projeto.
+    const privateRepo = isValidUrl(project.link) && project.repository && !isValidUrl(project.repository)
+      ? `<span class="project-link project-link-muted">${escapeHtml(project.repository)}</span>`
+      : "";
+    const actions = `<div class="project-actions">${action}${privateRepo}</div>`;
     const period = project.period ? `<p class="project-period">${escapeHtml(project.period)}</p>` : "";
     const status = project.status ? `<p class="project-status">${escapeHtml(project.status)}</p>` : "";
-    const description = isCase ? `<p class="project-description">${escapeHtml(project.description)}</p>` : "";
+    const description = `<p class="project-description">${escapeHtml(project.description)}</p>`;
     const steps = [
       ["Problema", project.problem],
       ["O que eu fiz", project.contribution],
@@ -54,11 +59,11 @@
           ${description}
           <ul class="tag-list" aria-label="Tecnologias">${tags}</ul>
           ${status}
-          ${isCase ? action : ""}
+          ${isCase ? actions : ""}
         </div>
         <div class="project-steps">${steps}</div>
         ${solved}
-        ${isCase ? "" : action}
+        ${isCase ? "" : actions}
       </article>`;
   }
 

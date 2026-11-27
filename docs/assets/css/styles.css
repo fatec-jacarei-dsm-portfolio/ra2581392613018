@@ -752,13 +752,19 @@ img {
   align-items: center;
   gap: 6px;
   min-height: 32px;
-  margin-top: auto;
   color: var(--accent);
   font-size: 14px;
   font-weight: 600;
 }
 
-.project-case .project-link {
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin-top: auto;
+}
+
+.project-case .project-actions {
   margin-top: 6px;
 }
 

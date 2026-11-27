@@ -128,7 +128,7 @@ window.PORTFOLIO_DATA = {
       result: "Site no ar com a vitrine de encomendas e o orçamento de coffee break em poucos passos. Cada pedido chega à equipe na hora, e o WhatsApp está a um toque em todas as páginas.",
       status: "Em produção",
       technologies: ["HTML", "CSS", "JavaScript", "Node.js", "Cloudflare Pages"],
-      repository: "https://github.com/renanrmsantos14/site-grupo-mendonca",
+      repository: "Repositório privado",
       link: "https://www.grupomzcoffee.com.br",
       linkLabel: "Acessar site",
     },
@@ -144,7 +144,7 @@ window.PORTFOLIO_DATA = {
       problem: "Separar regiões de uma imagem por cor à mão é lento e impreciso.",
       result: "Segmentação recursiva no próprio navegador, com tolerância ajustável em tempo real.",
       technologies: ["TypeScript", "HTML Canvas", "CSS"],
-      repository: "",
+      repository: "Repositório privado",
     },
   ],
 
