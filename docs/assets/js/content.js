@@ -70,8 +70,35 @@ window.PORTFOLIO_DATA = {
 
     // ---- Profissionais ----
     {
+      name: "Sistema Betinhos",
+      category: "profissionais",
+      case: true,
+      type: "Profissional",
+      semester: "1DSM e 2DSM – 2026",
+      period: "Junho de 2026 – atual · 9 apps e 8 pacotes",
+      description:
+        "Sistema interno da Betinhos Executive Service, do pedido do cliente ao financeiro, usado por clientes, operação, gestão e motoristas.",
+      problem:
+        "Cadastro, operação, financeiro e motoristas ficavam em telas e ferramentas separadas, sem um caminho único do pedido do cliente até o faturamento.",
+      contribution:
+        "Desenhei e desenvolvi o sistema de ponta a ponta: telas em React e TypeScript, modelagem e regras no Dataverse, plugins em C#, Workers na Cloudflare e deploy automático com migrations de schema.",
+      result: "Sistema em produção, com o portal do cliente, o acompanhamento do motorista e a retaguarda da empresa no mesmo lugar.",
+      status: "Em produção",
+      modules: [
+        ["Portal do Cliente", "Pedido de serviço com estimativa de rota, prazos por cliente e aprovação de pedidos."],
+        ["Acompanhar motorista", "Link do serviço com as etapas em tempo real e aviso do motorista por notificação."],
+        ["App Motoristas", "Chegada, embarque e desembarque, aditivos e uso sem internet."],
+        ["Operação", "Planner, Formulário Geral, pendências e validação pelo cliente."],
+        ["Financeiro", "Composição de preço, pagantes, recebimentos, despesas e conciliação de cartão."],
+        ["Frota e RH", "Veículos, manutenções, multas, funcionários, treinamentos e comunicados."],
+      ],
+      technologies: ["React", "TypeScript", "Vite", "Dataverse", "C#", "Cloudflare Workers", "Power Automate"],
+      repository: "Uso interno da empresa",
+    },
+    {
       name: "Site institucional Betinhos",
       category: "profissionais",
+      case: true,
       type: "Profissional",
       semester: "1DSM e 2DSM – 2026",
       period: "Junho de 2023 – atual",
@@ -87,52 +114,6 @@ window.PORTFOLIO_DATA = {
       link: "https://www.betinhos.com.br",
       linkLabel: "Acessar site",
     },
-    {
-      name: "Formulário Geral de Serviços",
-      category: "profissionais",
-      type: "Profissional",
-      semester: "1DSM e 2DSM – 2026",
-      description:
-        "Formulário web embutido no CRM da empresa para cadastro de clientes, passageiros, serviços e veículos, com validações em tempo real e gravação direta no Dataverse.",
-      contribution:
-        "Desenvolvi a tela em HTML, CSS e JavaScript puro, modelei as tabelas e relacionamentos no Dataverse, escrevi a camada de integração com a Web API e automatizei a compilação e publicação do WebResource.",
-      problem: "A operação precisava cadastrar clientes, passageiros, serviços e veículos em um só lugar, com menos erro de digitação.",
-      result: "Formulário em uso dentro do CRM, com validações em tempo real e gravação direta no Dataverse.",
-      status: "Em produção",
-      technologies: ["HTML", "CSS", "JavaScript", "Dataverse", "Web API", "Node.js"],
-      repository: "Repositório privado",
-    },
-    {
-      name: "App Motoristas",
-      category: "profissionais",
-      type: "Profissional",
-      semester: "2DSM – 2º Sem. 2026",
-      description:
-        "Aplicativo mobile para motoristas registrarem cada etapa do serviço (chegada, embarque, desembarque) e consultarem a agenda do dia, com notificações automáticas para a central.",
-      contribution:
-        "Projetei telas e fluxo de uso, implementei a lógica em Power Fx, integrei o app ao Dataverse e criei os fluxos de notificação no Power Automate.",
-      problem: "A central precisava acompanhar cada etapa do serviço e a agenda dos motoristas sem depender de ligações.",
-      result: "Motoristas registram chegada, embarque e desembarque pelo app, e a central recebe notificações automáticas.",
-      status: "Em produção",
-      technologies: ["Power Apps", "Power Fx", "Dataverse", "Power Automate"],
-      repository: "Repositório privado",
-    },
-    {
-      name: "Painéis operacionais",
-      category: "profissionais",
-      type: "Profissional",
-      semester: "2DSM – 2º Sem. 2026",
-      description:
-        "Relatórios de faturamento, ocupação da frota e desempenho de atendimento, conectados ao Dataverse e ao SharePoint para apoiar decisões da gestão.",
-      contribution:
-        "Modelei as fontes de dados e as medidas, e desenhei os painéis com foco em leitura rápida pela diretoria.",
-      problem: "A gestão precisava acompanhar faturamento, ocupação da frota e atendimento em um só lugar.",
-      result: "Painéis conectados ao Dataverse e ao SharePoint, desenhados para leitura rápida pela diretoria.",
-      status: "Em uso",
-      technologies: ["Power BI", "DAX", "Dataverse", "SharePoint"],
-      repository: "Repositório privado",
-    },
-
     // ---- Pessoais ----
     {
       name: "TapFinance",

@@ -24,7 +24,7 @@
   function projectTemplate(project, index) {
     const tags = listItems(project.technologies);
     const projectUrl = project.link || project.repository;
-    const isCase = project.category === CASE_CATEGORY;
+    const isCase = project.case || project.category === CASE_CATEGORY;
     const action = isValidUrl(projectUrl)
       ? `<a class="project-link" href="${escapeHtml(projectUrl)}" target="_blank" rel="noreferrer">${escapeHtml(project.linkLabel || "Abrir repositório")} ${ICON("arrow-up-right")}</a>`
       : `<span class="project-link project-link-muted">${escapeHtml(project.repository || "Repositório em breve")}</span>`;
@@ -39,6 +39,11 @@
       .filter(([, text]) => text)
       .map(([title, text]) => `<div><h5>${title}</h5><p>${escapeHtml(text)}</p></div>`)
       .join("");
+    const modules = project.modules
+      ? `<ul class="project-modules" aria-label="Módulos">${project.modules
+          .map(([name, text]) => `<li><strong>${escapeHtml(name)}</strong><span>${escapeHtml(text)}</span></li>`)
+          .join("")}</ul>`
+      : "";
 
     return `
       <article class="project-card reveal${isCase ? " project-case" : ""}" style="--delay: ${index % 2}">
@@ -52,6 +57,7 @@
           ${isCase ? action : ""}
         </div>
         <div class="project-steps">${steps}</div>
+        ${modules}
         ${isCase ? "" : action}
       </article>`;
   }

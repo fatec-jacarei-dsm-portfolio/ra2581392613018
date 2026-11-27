@@ -684,6 +684,7 @@ img {
 }
 
 .project-case {
+  grid-column: 1 / -1;
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr);
   gap: 40px;
@@ -811,6 +812,34 @@ img {
 .project-card:not(.project-case) .project-steps p {
   color: var(--soft);
   font-size: 14px;
+}
+
+.project-modules {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.project-modules li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.project-modules strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.project-modules span {
+  color: var(--muted);
+  font-size: 13px;
 }
 
 .noscript-note {
@@ -1025,6 +1054,10 @@ img {
 
 /* ---------- Responsivo ---------- */
 @media (max-width: 1024px) {
+  .project-modules {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .hero {
     height: auto;
     padding-bottom: 40px;
@@ -1127,6 +1160,10 @@ img {
 }
 
 @media (max-width: 760px) {
+  .project-modules {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
   :root {
     --page: calc(100% - 32px);
   }
