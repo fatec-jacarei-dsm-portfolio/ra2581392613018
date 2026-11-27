@@ -180,7 +180,7 @@ window.PORTFOLIO_DATA = {
   interests: ["Desenvolvimento de web apps", "Interfaces acessíveis", "Produto digital", "Automação e dados"],
 
   videos: [
-    { label: "2DSM", url: "", note: "Apresentação dos projetos de 1DSM e 2DSM" },
+    { label: "2DSM", url: "https://youtu.be/wSlFU4QRQfU", note: "Apresentação dos projetos de 1DSM e 2DSM" },
     { label: "4DSM", url: "", note: "Apresentação dos projetos de 3DSM e 4DSM" },
     { label: "6DSM", url: "", note: "Apresentação dos projetos de 5DSM e 6DSM" },
   ],
