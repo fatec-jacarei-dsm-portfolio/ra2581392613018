@@ -154,15 +154,26 @@
       interests.innerHTML = data.profile.interests.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
     }
 
+    const semester = currentSemester(data.profile.entry);
+    const semesterStat = document.querySelector("[data-stat='semester']");
+    if (semester && semesterStat?.previousElementSibling) semesterStat.previousElementSibling.textContent = "Semestre atual";
     const stats = {
       projects: String(data.projects.length).padStart(2, "0"),
-      semester: data.profile.currentSemester,
+      semester: semester ? `${semester}DSM` : "",
       since: (data.experience?.[0]?.period || "").split(" ")[2] || "",
     };
     document.querySelectorAll("[data-stat]").forEach((element) => {
       const value = stats[element.dataset.stat];
       if (value) element.textContent = value;
     });
+  }
+
+  // Semestre do curso (1 a 6) calculado pela data; jan–jun = 1º, jul–dez = 2º semestre do ano.
+  function currentSemester(entry, now = new Date()) {
+    if (!entry) return 0;
+    const term = now.getMonth() < 6 ? 1 : 2;
+    const semester = (now.getFullYear() - entry.year) * 2 + term - entry.term + 1;
+    return semester >= 1 && semester <= 6 ? semester : 0;
   }
 
   function renderSocialLinks() {
@@ -179,7 +190,9 @@
     if (!data?.education?.length) return;
     const education = data.education[0];
     document.querySelectorAll("[data-education]").forEach((element) => {
-      const value = education[element.dataset.education];
+      let value = education[element.dataset.education];
+      const semester = currentSemester(data.profile.entry);
+      if (value && element.dataset.education === "period" && semester) value += ` · cursando o ${semester}DSM`;
       if (value) element.textContent = value;
     });
 

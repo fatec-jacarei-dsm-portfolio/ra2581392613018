@@ -2,7 +2,7 @@
 
 **Aluno:** Renan Rodrigues Mendonca dos Santos  
 **Curso:** Desenvolvimento de Software Multiplataforma  
-**Turma:** 1º semestre de 2026 (ingresso) - cursando o 2DSM
+**Turma:** 1º semestre de 2026 (ingresso)
 
 ---
 

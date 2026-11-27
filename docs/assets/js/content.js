@@ -19,7 +19,8 @@ window.PORTFOLIO_DATA = {
       "Automação de processos",
       "UX e produto digital",
     ],
-    currentSemester: "2DSM",
+    // Semestre atual é calculado por data a partir do ingresso (main.js).
+    entry: { year: 2026, term: 1 },
   },
 
   // Categorias exibidas nesta ordem quando o filtro é "Todos".
@@ -31,6 +32,20 @@ window.PORTFOLIO_DATA = {
 
   projects: [
     // ---- Acadêmicos ----
+    {
+      name: "GreenER",
+      category: "academicos",
+      type: "Projeto Integrador (ABP)",
+      semester: "2DSM – 2º Sem. 2026",
+      description:
+        "Plataforma de GreenOps da equipe Green Stack que estima o consumo energético e as emissões de CO₂e de aplicações a partir de métricas de CPU, RAM, disco e rede e da intensidade de carbono da matriz elétrica regional.",
+      contribution:
+        "Criei a base do front-end em React e TypeScript (estrutura, rotas e cliente HTTP), as telas de filtros por serviço, região e período e de comparação entre 2 e 5 serviços, e a exibição da última coleta nos indicadores; no back-end, os endpoints de serviços e coletas e o tratamento de localização ausente; no banco, o schema, o seed e os repositórios com SQL parametrizado; também configurei o deploy no Render, os templates de issue e PR e parte da documentação das sprints e diagramas UML.",
+      technologies: ["React", "TypeScript", "Vite", "Node.js", "PostgreSQL", "Docker", "Render"],
+      repository: "https://github.com/greenstackfatec-tech/greener",
+      linkLabel: "Abrir repositório",
+      featured: true,
+    },
     {
       name: "Scrum Dungeon",
       category: "academicos",
@@ -156,7 +171,7 @@ window.PORTFOLIO_DATA = {
     {
       course: "Desenvolvimento de Software Multiplataforma",
       institution: "Fatec Jacareí",
-      period: "Ingresso em 2026 · cursando o 2DSM",
+      period: "Ingresso em 2026",
     },
   ],
 
